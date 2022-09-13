@@ -20,7 +20,11 @@
 #include "emimicon.h"
 
 #include <magic.h>
+#ifdef __HAIKU__
+#include <sys/statvfs.h>
+#else
 #include <sys/vfs.h>
+#endif
 #include <sys/stat.h>
 #include <QFile>
 #include <QTextStream>
@@ -813,8 +817,13 @@ QString EMimIcon::formatSize(qint64 num)
 QHash<QString ,qint64> EMimIcon::getDriveInfo(QString path)
 {
 
+	#ifdef __HAIKU__
+	 struct statvfs info;
+     statvfs(path.toLocal8Bit(), &info);
+	#else
      struct statfs info;
      statfs(path.toLocal8Bit(), &info);
+#endif
      QHash<QString ,qint64>hash;
      if(info.f_blocks == 0) return hash;
 

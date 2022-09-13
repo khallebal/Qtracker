@@ -13,7 +13,9 @@ INCLUDEPATH +=common\
               usr\
               etc
 
-LIBS += $(SUBLIBS)  -L/usr/lib -lQtDBus -lQtXml -lQtGui -lQtCore -lpthread -lX11
+PKG_CONFIG_PATH = /boot/system/develop/lib/x86/pkgconfig
+
+LIBS += $(SUBLIBS)  -L/usr/lib -lQtDBus -lQtXml -lQtGui -lQtCore -lpthread
 linux-g++*: {
              # Provide relative path from application to elokab librarys
              # ex:app=usr/bin/elokab-applications  library=usr/lib/libelokabmimicon.so
