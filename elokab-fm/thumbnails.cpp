@@ -23,7 +23,7 @@ Thumbnails::Thumbnails(QObject *parent) : QObject(parent)
 {
     canReadPdf=EMimIcon::findProgram("convert");
     canReadPdf=EMimIcon::findProgram("pdfimages");
-   // canReadVideo=EMimIcon::findProgram("ffmpeg");
+    canReadVideo=EMimIcon::findProgram("ffmpeg");
 
     mThread=new Thread;
     // connect(mThread,SIGNAL(canceled(QString)),this,SLOT(cancel(QString)));
@@ -278,7 +278,7 @@ QString vtime;
 
         qDebug()<<"thumb"<<pos<<vtime;
 
-       // QString scal="scale='if(gt(a,1/1),128,-1)':'if(gt(a,1/1),-1,128)'";
+//        QString scal="scale='if(gt(a,1/1),128,-1)':'if(gt(a,1/1),-1,128)'";
         QStringList list;
 //ffmpeg -i ./kofar-bi-amirica.mp4 -y -ss 10.0 -vframes 1 -vf  scale="'if(gt(a,1/1),128,-1)':'if(gt(a,1/1),-1,128)'"   out.png
 //        list<<"-i"<<mInfo.filePath()<<"-y"<<"-t"<<"1"<<"-r"<<"1"
@@ -315,20 +315,20 @@ QString vtime;
     if( imagevideo.load(fileThumbnail+".video"))
     {
 
-      //  imagevideo= imagevideo.scaled(QSize(128,128),Qt::KeepAspectRatio,Qt::SmoothTransformation);
+        imagevideo= imagevideo.scaled(QSize(128,128),Qt::KeepAspectRatio,Qt::SmoothTransformation);
 
         QImage imageIcon;
-        imageIcon.load(":/icons/video.svg");
         QPainter p(&imagevideo);
-        int imX=(imagevideo.width()-imageIcon.width())/2;
-        int imY=(imagevideo.height()-imageIcon.height())/2;
+        int imX=(imagevideo.width()-imageIcon.width()) / 2;
+        int imY=(imagevideo.height()-imageIcon.height()) / 2;
         p.drawImage(imX,imY,imageIcon);
-        QRect rect(0,imY+imageIcon.height(),imagevideo.width(),imagevideo.height()-(imY+imageIcon.height()));
+        QRect rect(0,imY+imageIcon.height(),imagevideo.width(),
+        			imagevideo.height()-(imY+imageIcon.height()));
         p.setPen(QColor(Qt::black));
-        p.drawText(rect,Qt::AlignHCenter|Qt::AlignVCenter,vtime);
-        rect.adjust(1,1,1,1);
+        p.drawText(rect,Qt::AlignRight|Qt::AlignBottom,vtime);
+        rect.adjust( - 3, - 3, - 3, - 3);
         p.setPen(QColor(Qt::white));
-        p.drawText(rect,Qt::AlignHCenter|Qt::AlignVCenter,vtime);
+        p.drawText(rect,Qt::AlignRight|Qt::AlignBottom,vtime);
 
         imagevideo.setText(D_KEY_DATETIME,mInfo.lastModified().toString("dd MM yyyy hh:mm:ss"));
         QByteArray text=mInfo.filePath().toUtf8();
