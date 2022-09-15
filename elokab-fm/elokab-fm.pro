@@ -10,7 +10,7 @@ QT       += core gui dbus xml concurrent
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets concurrent
 
 DEFINES -= DEBUG_APP
-TARGET = elokab-fm
+TARGET = Qtracker
 TEMPLATE = app
 
 DESTDIR = ../usr/bin

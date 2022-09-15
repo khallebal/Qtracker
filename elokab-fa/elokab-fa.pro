@@ -3,7 +3,7 @@ QT       += core gui dbus xml
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 DEFINES += DEBUG_APP
-TARGET = elokab-fa
+TARGET = Qtracker-fa
 TEMPLATE = app
 
 DESTDIR = ../usr/bin
@@ -15,7 +15,6 @@ OBJECTS_DIR = build
 MOC_DIR = build
 UI_DIR = build
 INCLUDEPATH +=build
-    LIBS += -lmagic
 
 INCLUDEPATH+=../common
 

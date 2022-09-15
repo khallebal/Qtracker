@@ -1,3 +1,11 @@
+This is a fork of the elokab-file-manager for which i made some changes
+to make it work under Haiku
+this is the original repo:
+
+```html
+https://gitlab.com/zakariakov/elokab-files-manager.git
+```
+
 # elokab-files-manager
 A lightweight  file manager for Linux desktops built in Qt.
 
@@ -24,7 +32,9 @@ Optional dependencies: imagemagick , ffmpeg
 
 # Install
 
+```html
 git clone https://gitlab.com/zakariakov/elokab-files-manager.git
+```
 
 cd elokab-files-manager
 
