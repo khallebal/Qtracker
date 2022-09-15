@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 
       ElokabApplication a(argc, argv);
            /// جلب ترجمة البرنامج من مجلد البرنامج
-          a.setApplicationName("elokab-fa");
+          a.setApplicationName("Qtracker-fa");
     QTranslator translator;
            translator.load(a.translationPath());
            a.installTranslator(&translator);
@@ -106,8 +106,8 @@ int main(int argc, char *argv[])
     QString help=QObject::tr
             ("Elokab Files Actions Gui Version 0.1 .\n"
              " \n"
-             "Usage: elokab-fa [OPTION]..File(s)..\n"
-             "Usage: elokab-fa [OPTION]..SOURCE... DIRECTORY..\n"
+             "Usage: Qtracker-fa [OPTION]..File(s)..\n"
+             "Usage: Qtracker-fa [OPTION]..SOURCE... DIRECTORY..\n"
              "OPTION:\n"
              " -rm          Remove File(s).\n"
              " -mt          Move File(s) to trash.\n"

@@ -8,7 +8,7 @@
 #define D_MMIM          Qt::UserRole
 #define D_MARGINS       3
 
-#define D_APPNAME       "elokab-fm"
+#define D_APPNAME       "Qtracker"
 #define D_APPVERSION    "0.2"
 #define D_APPORGNAME    "elokab"
 

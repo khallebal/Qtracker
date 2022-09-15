@@ -614,7 +614,7 @@ qDebug()<<fileName;
         }else{
 
 
-            QString costumBrowser=(setting.value("BROWSER","elokab-fm").toString());
+            QString costumBrowser=(setting.value("BROWSER","Qtracker").toString());
             QString prog=costumBrowser.section(" ",0,0);
             QStringList list;
             if(!costumBrowser.section(" ",1,1).trimmed().isEmpty())

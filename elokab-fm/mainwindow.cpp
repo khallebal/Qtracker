@@ -73,7 +73,7 @@ MainWindow::MainWindow( QString pathUrl,QWidget *parent) :
     qWarning("***********************************************************************************\n"
              "** ELOKAB FILES MANAGER VERTION %s BY ABOUZAKARIA LICENCE GPL 3                  **\n"
              "** ELOKAB FM WAS STARTED IN NORMAL MODE.                                         **\n"
-             "** IF YOU WANT TO SEE DEBUGGING INFORMATION, PLEASE USE:  elokab-fm --debug      **\n"
+             "** IF YOU WANT TO SEE DEBUGGING INFORMATION, PLEASE USE:  Qtracker --debug      **\n"
              "***********************************************************************************\n"
              , qPrintable(QApplication::applicationVersion()));
 

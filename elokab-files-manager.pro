@@ -2,8 +2,8 @@
 TEMPLATE    = subdirs
 SUBDIRS	    =\
     library\
-    elokab-fm \
-     elokab-fa
+    Qtracker \
+     Qtracker-fa
 
 CONFIG += qt \
           release
