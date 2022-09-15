@@ -47,11 +47,11 @@ QString Edir::progPath(const QString &prog)
 QString Edir::dataDir()
 {
     //  "/usr/share/elokab
-    QDir appDir(QApplication::applicationDirPath());
+    QDir appDir=QApplication::applicationDirPath();
     QString dirPath;
-    appDir.cdUp();
-    dirPath=  appDir.absolutePath()+"/share/elokab";
-    return dirPath;
+    dirPath = appDir.cd(appDir.path()+"/data");
+
+    return appDir.absolutePath();
 }
 
 //_________________________________________________________________
@@ -64,14 +64,15 @@ QString Edir::dataAppDir()
 
 
 //_________________________________________________________________
+
 QString Edir::dataHomeDir()
 {
-   //"$Home/.local/share
-    QDir dir(QDir::homePath()+"/.local/share");
-    if(!dir.exists())
-        dir.mkpath(".");
+	//"$Home/.local/share
+    QDir appDir=QApplication::applicationDirPath();
+    QString dirPath;
+    dirPath = appDir.cd(appDir.path()+"/data");
 
-    return dir.absolutePath();
+    return appDir.absolutePath();
 }
 
 //_________________________________________________________________
@@ -79,11 +80,7 @@ QString Edir::dataHomeAppDir()
 {
     //"$Home/.local/share/elokab/elokab-appname
     QString appName=QApplication::applicationName();
-    QDir dir(dataHomeDir()+"/elokab/"+appName);
-    if(!dir.exists())
-        dir.mkpath(".");
-
-    return dir.absolutePath();
+    return dataHomeDir()+"/"+appName;
 }
 
 //_________________________________________________________________
@@ -93,10 +90,10 @@ QString Edir::libDir()
   // QString appName=QApplication::applicationName();
    QDir pluginsDir(qApp->applicationDirPath());
     pluginsDir.cdUp();
-    if(QFile::exists(pluginsDir.path()+"/lib/elokab")){
-        pluginsDir.cd(pluginsDir.path()+"/lib/elokab");
-    }else if(QFile::exists(pluginsDir.path()+"/lib64/elokab")){
-        pluginsDir.cd(pluginsDir.path()+"/lib64/elokab");
+    if(QFile::exists(pluginsDir.path()+"/lib")){
+        pluginsDir.cd(pluginsDir.path()+"/lib");
+    }else if(QFile::exists(pluginsDir.path()+"/lib64")){
+        pluginsDir.cd(pluginsDir.path()+"/lib64");
     }
     return pluginsDir.absolutePath();
 }
@@ -115,7 +112,14 @@ QString Edir::configDir()
 QString Edir::configHomeDir()
 {
     //"$Home/.config"
-    QDir dir(QDir::homePath()+"/.config");
+    QString location;
+#if QT_VERSION >= 0x050000
+    location=QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);
+#else
+    location=QDesktopServices::storageLocation(QDesktopServices::ConfigLocation);
+#endif
+
+	QDir dir(location);
     if(!dir.exists())
         dir.mkpath(".");
     return dir.absolutePath();
@@ -125,13 +129,13 @@ QString Edir::configHomeDir()
 QStringList Edir::applicationsDirs()
 {
     return QStringList()<<applicationsHomeDir()
-                       <<"/usr/share/applications";
+                       <<"/applications";
 }
 
 //_________________________________________________________________
 QString Edir::applicationsHomeDir()
 {
-    QDir dir(QDir::homePath()+"/.local/share/applications");
+    QDir dir(configDir()+"/applications");
     if(!dir.exists())
         dir.mkpath(".");
     return dir.absolutePath();
@@ -139,28 +143,52 @@ QString Edir::applicationsHomeDir()
 //_________________________________________________________________
 QString Edir::thumbnaileCachDir()
 {
-       QString location=cachDir();
-       location+="/thumbnails";
-       QDir dir(location);
-       if(!dir.exists())
-           dir.mkpath(".");
-       return location;
+    QString cacheDir;
+
+    // Follow the FreeDesktop Spec
+    const QByteArray arr = qgetenv("XDG_CACHE_HOME");
+    if (!arr.isEmpty()) {
+        QFileInfo fi(arr);
+        if (fi.exists() && fi.isReadable()) {
+            cacheDir = fi.absoluteFilePath();
+            cacheDir += QStringLiteral("/thumbnails/");
+        }
+    }
+
+    if (cacheDir.isEmpty()) {
+        cacheDir = QDir::homePath() + 
+        	QStringLiteral("/config/cache/thumbnails/");
+    }
+
+    // check if
+    if (!cacheDir.isEmpty()) {
+        QDir dir(cacheDir);
+        if(!dir.exists())
+            dir.mkpath(".");
+        // FIXME: check for all the other sizes
+        QDir dirNormal(cacheDir+"normal/");
+        if(!dirNormal.exists())
+            dirNormal.mkpath(".");
+    }
+    return cacheDir;
 }
 
 //_________________________________________________________________
+
 QString Edir::cachDir()
 {
-    QString location;
-#if QT_VERSION >= 0x050000
-    location=QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
-#else
-    location=QDesktopServices::storageLocation(QDesktopServices::CacheLocation);
-#endif
-
-    QDir dir(location);
-    if(!dir.exists())
-        dir.mkpath(".");
-    return location;
+//    QString location;
+//#if QT_VERSION >= 0x050000
+//    location=QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
+//#else
+//    location=QDesktopServices::storageLocation(QDesktopServices::CacheLocation);
+//#endif
+//
+//    QDir dir(location);
+//    if(!dir.exists())
+//        dir.mkpath(".");
+//    return location;
+	return NULL;	
 }
 
 //_________________________________________________________________
@@ -231,26 +259,21 @@ QString Edir::picturesDir()
 //_________________________________________________________________
 QString Edir::trashDir()
 {
-//    QString home =QDir::homePath();
-//    paths.append( home + "/.local/share/Trash" );
-//    paths.append( home + "/.trash" );
-    //"$Home/.config"
-    QDir dir(QDir::homePath()+"/.trash");
+    QDir dir(QDir::rootPath()+"/boot/trash");
     if(dir.exists())
         return dir.absolutePath();
 
-    dir.setPath(QDir::homePath()+ "/.local/share/Trash" );
+    dir.setPath(configDir()+ "/Trash" );
     if(!dir.exists())
         dir.mkpath(".");
 
      return dir.absolutePath();
-
-
 }
+
 QString Edir::trashFiles()
 {
 
-    QDir dir(trashDir()+ "/files" );
+    QDir dir(trashDir()+ "/" );
     if(!dir.exists())
         dir.mkpath(".");
 
@@ -261,7 +284,7 @@ QString Edir::trashFiles()
 
 QString Edir::trashInfo()
 {
-    QDir dir(trashDir()+ "/info" );
+    QDir dir(configDir()+ "/Trash/info" );
     if(!dir.exists())
         dir.mkpath(".");
 
