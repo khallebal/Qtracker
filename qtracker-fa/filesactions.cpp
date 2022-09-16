@@ -565,14 +565,14 @@ bool FilesActions::trashExists()
 {
      QString TrashPath;
      QStringList paths;
-     const char* xdg_data_home = getenv( "XDG_CONFIG_HOME" );
-     if( xdg_data_home ){
+     const char* xdg_config_home = getenv( "XDG_CONFIG_HOME" );
+     if( xdg_config_home ){
           // qDebug() << "XDG_CONFIG_HOME not yet tested";
-          QString xdgTrash( xdg_data_home );
+          QString xdgTrash( xdg_config_home );
           paths.append( xdgTrash + "/Trash" );
      }
      QString home =QDir::homePath();
-     paths.append( home + "/config/settings/elokab/Trash" );
+     paths.append( home + "/config/settings/qtracker/Trash" );
 //     paths.append( home + "/.trash" );
      foreach( QString path, paths ){
           if( TrashPath.isEmpty() ){

@@ -11,4 +11,4 @@ Name[ar]=ضغط وتحويل الى *.mp4
 Icon=video-mp4
 TryExec=ffmpeg
 #Exec=file=%f; konsole --noclose -e  ffmpeg -hide_banner -i %f -codec copy -strict -2 "${file%.*}.mp4"
-Exec= konsole --noclose -e  ffmpeg -hide_banner -i %f  "n%.mp4"
+Exec= Terminal -e  ffmpeg -hide_banner -i %f  "n%.mp4"

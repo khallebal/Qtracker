@@ -41,7 +41,7 @@ PlaceTree::PlaceTree(QWidget *parent) :
 
      setObjectName("PlaceTree");
      setHeaderHidden(true);
-     setIconSize(QSize(16,16));
+     setIconSize(QSize(32,32));
          setContextMenuPolicy(Qt::CustomContextMenu);
      setStyleSheet("QTreeView{"
                    "background-color: transparent;"

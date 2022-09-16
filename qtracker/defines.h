@@ -8,9 +8,9 @@
 #define D_MMIM          Qt::UserRole
 #define D_MARGINS       3
 
-#define D_APPNAME       "Qtracker"
+#define D_APPNAME       "qtracker"
 #define D_APPVERSION    "0.2"
-#define D_APPORGNAME    "Qtracker"
+#define D_APPORGNAME    "qtracker"
 
 #define D_TRASH         ":/trash"
 #define D_SEARCH        ":/search"

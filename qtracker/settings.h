@@ -101,7 +101,7 @@ class Settings : public QSettings
      public slots:
           /*!< حجم الايقونات */
           int  viewIconSize(){return value("ViewIconSize",64).toInt();}
-          int  treeIconSize(){return value("TreeIconSize",24).toInt();}
+          int  treeIconSize(){return value("TreeIconSize",16).toInt();}
           void setIconSize(int arg){emit iconSizeChanged(arg);}
 
           /*!< ترتيب حسب الاسم ام النوع ام التاريخ */
@@ -130,7 +130,7 @@ class Settings : public QSettings
           void setFolderNavigation(const bool &arg){   setValue("FolderNavigation",arg);emit showFolderNavigationChanged(arg);}
 
           /*!< لوحة المعلومات */
-          bool showInformation(){return value("ShowInformation",true).toBool();}
+          bool showInformation(){return value("ShowInformation",false).toBool();}
           void setShowInformation(const bool &arg){setValue("ShowInformation",arg);emit showInformationChanged(arg);}
 
           /*!< عرض اخفاء لوحة الادوات */
@@ -184,7 +184,7 @@ class Settings : public QSettings
           void setConfirmDragDrop(const bool &arg){setValue("ConfirmDragDrop",arg);emit confirmDragDropChanged(arg);}
 
             /*!< عرض  ايقونات بسيطة */
-          bool isClassicIcons(){return value("ClassicIcons",false).toBool();}
+          bool isClassicIcons(){return value("ClassicIcons",true).toBool();}
           void setClassicIcons(const bool &arg){setValue("ClassicIcons",arg);emit classicIconsChanged(arg);}
 
           /*!< عرض مصغرات ملفات pdf */

@@ -3,7 +3,7 @@ QT       += core gui dbus xml
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 DEFINES += DEBUG_APP
-TARGET = Qtracker-fa
+TARGET = qtracker-fa
 TEMPLATE = app
 
 DESTDIR = ../usr/bin

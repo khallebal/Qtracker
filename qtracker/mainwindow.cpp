@@ -73,7 +73,7 @@ MainWindow::MainWindow( QString pathUrl,QWidget *parent) :
     qWarning("***********************************************************************************\n"
              "** ELOKAB FILES MANAGER VERTION %s BY ABOUZAKARIA LICENCE GPL 3                  **\n"
              "** ELOKAB FM WAS STARTED IN NORMAL MODE.                                         **\n"
-             "** IF YOU WANT TO SEE DEBUGGING INFORMATION, PLEASE USE:  Qtracker --debug      **\n"
+             "** IF YOU WANT TO SEE DEBUGGING INFORMATION, PLEASE USE:  qtracker --debug      **\n"
              "***********************************************************************************\n"
              , qPrintable(QApplication::applicationVersion()));
 
@@ -534,7 +534,7 @@ void MainWindow::loadIconThems()
     QByteArray sS=qgetenv("DESKTOP_SESSION");
 
     if(sS=="elokab-session"){
-        QSettings setting(QApplication::organizationName(),"Qtrackersettings");
+        QSettings setting(QApplication::organizationName(),"qtrackersettings");
         setting.beginGroup("Themes");
         icnThem=  setting.value("iconsTheme",QIcon::themeName()).toString();
         setting.endGroup();
@@ -630,7 +630,7 @@ void MainWindow::showAboutThis()
     WidgetAbout *wid=new WidgetAbout(dlg);
     wid->setPixmap(EIcon::fromTheme("system-file-manager",("folder")).pixmap(64));
     wid->setDescription(tr("File Manager Based on Qt"));
-    wid->setApplicationText(tr("Elokab File manager"));
+    wid->setApplicationText(tr("qtracker File manager"));
     QVBoxLayout  *verticalLayout = new QVBoxLayout(dlg);
     QDialogButtonBox *buttonBox = new QDialogButtonBox(dlg);
     buttonBox->setOrientation(Qt::Horizontal);

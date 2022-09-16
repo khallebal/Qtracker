@@ -89,7 +89,7 @@ bool MenuGen::checkAppsDesktopFile()
  ****************************************************************************/
 void MenuGen::loadSettings()
 {
-     QSettings setting(QApplication::organizationName(),"Qtrackersettings");
+     QSettings setting(QApplication::organizationName(),"qtrackersettings");
      setting.beginGroup("MenuAppCount");
      m_appCount=setting.value("Num",0).toInt();
      setting.endGroup();
@@ -100,7 +100,7 @@ void MenuGen::loadSettings()
  ****************************************************************************/
 void MenuGen::saveSettings()
 {
-     QSettings setting(QApplication::organizationName(),"Qtrackersettings");
+     QSettings setting(QApplication::organizationName(),"qtrackersettings");
      setting.beginGroup("MenuAppCount");
      setting.setValue("Num",m_appCount);
      setting.endGroup();

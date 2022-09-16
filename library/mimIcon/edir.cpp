@@ -102,7 +102,7 @@ QString Edir::libDir()
 QString Edir::configDir()
 {
     //"$Home/.config/elokab"
-    QDir dir(configHomeDir()+"/Qtracker");
+    QDir dir(configHomeDir()+"/qtracker");
     if(!dir.exists())
         dir.mkpath(".");
     return dir.absolutePath();

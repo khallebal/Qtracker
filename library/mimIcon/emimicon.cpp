@@ -603,7 +603,7 @@ qDebug()<<fileName;
 
     /*-----------------------------------DIR-------------------------------------------*/
     if(info.isDir()){
-        QSettings setting(QApplication::organizationName(),"Qtrackersettings");
+        QSettings setting(QApplication::organizationName(),"qtrackersettings");
         setting.beginGroup("DefaultBrowser");
         bool defaultBrowser=(setting.value("defaultBrowser",false).toBool());
 
@@ -614,7 +614,7 @@ qDebug()<<fileName;
         }else{
 
 
-            QString costumBrowser=(setting.value("BROWSER","Qtracker").toString());
+            QString costumBrowser=(setting.value("BROWSER","qtracker").toString());
             QString prog=costumBrowser.section(" ",0,0);
             QStringList list;
             if(!costumBrowser.section(" ",1,1).trimmed().isEmpty())

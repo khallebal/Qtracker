@@ -496,7 +496,7 @@ void Tab::deleteFiles()
     
     if(list.count()>0){
         // myModel->blockSignals(true);
-        QString prog=QApplication::applicationDirPath()+"/Qtracker-fa";
+        QString prog=QApplication::applicationDirPath()+"/qtracker-fa";
         QProcess p;
         // p.startDetached(prog,QStringList()<<"-rm"<<list.join(","),QApplication::applicationDirPath());
         p.start(prog,QStringList()<<"-rm"<<list.join(","));
@@ -579,7 +579,7 @@ void Tab::pastFiles()
 
     if(list.count()>0){
 
-        QString prog=QApplication::applicationDirPath()+"/Qtracker-fa";
+        QString prog=QApplication::applicationDirPath()+"/qtracker-fa";
         QProcess p;
         QString s=list.join(",");
         qDebug()<<"pastFiles s"<<s;
@@ -617,7 +617,7 @@ void Tab::moveFilesToTrash()
     QStringList list;
     list= pageWidget->selectedFiles();
     if(list.count()>0){
-        QString prog=QApplication::applicationDirPath()+"/Qtracker-fa";
+        QString prog=QApplication::applicationDirPath()+"/qtracker-fa";
         QProcess p;
         p.startDetached(prog,QStringList()<<"-mt"<<list.join(","),
                         QApplication::applicationDirPath());
@@ -694,7 +694,7 @@ void Tab::dragDropFiles(bool copy,QString path, QStringList list)
     }
 
     //qDebug()<<"Tab"<<0,__LINE__<<"dragDropFiles";
-    QString prog=QApplication::applicationDirPath()+"/Qtracker-fa";
+    QString prog=QApplication::applicationDirPath()+"/qtracker-fa";
     QProcess p;
     if(copy)
         p.startDetached(prog,

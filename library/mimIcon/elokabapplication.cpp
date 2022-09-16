@@ -31,7 +31,7 @@ ElokabApplication::ElokabApplication(int &argc, char **argv):
     QApplication(argc, argv)
 {
     setApplicationVersion("0.3");
-    setOrganizationName("Qtracker");
+    setOrganizationName("qtracker");
     msetting=new ElokabSettings;
     connect(msetting,SIGNAL(iconThemeChanged()),this,SLOT(setIconsThemeName()));
 }
@@ -49,7 +49,7 @@ ElokabApplication::ElokabApplication(int &argc, char **argv):
     QString dirPath=  appDir.absolutePath()+"/share/"+organizationName();
 
     /// جلب اعدادات اللغة
-    QSettings globalSetting(organizationName(),"Qtrackersettings");
+    QSettings globalSetting(organizationName(),"qtrackersettings");
     globalSetting.beginGroup("Language");
     QString locale=globalSetting.value("Name","Default").toString();
     globalSetting.endGroup();

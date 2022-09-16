@@ -2,8 +2,8 @@
 TEMPLATE    = subdirs
 SUBDIRS	    =\
     library\
-    Qtracker \
-     Qtracker-fa
+    qtracker \
+     qtracker-fa
 
 CONFIG += qt \
           release
@@ -12,8 +12,6 @@ CONFIG += qt \
 INCLUDEPATH +=common\
               usr\
               etc
-
-PKG_CONFIG_PATH = /boot/system/develop/lib/x86/pkgconfig
 
 LIBS += $(SUBLIBS)  -L/usr/lib -lQtDBus -lQtXml -lQtGui -lQtCore -lpthread
 linux-g++*: {
@@ -32,8 +30,7 @@ linux-g++*: {
 
 #---DATA files---------------
  elokabData.files=usr/share/qtracker/*
- elokabData.path=/usr/share/qtracker
-
+ elokabData.path=usr/share/qtracker
  INSTALLS +=    elokabConfig \
                 elokabData
 
