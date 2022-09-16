@@ -603,7 +603,7 @@ qDebug()<<fileName;
 
     /*-----------------------------------DIR-------------------------------------------*/
     if(info.isDir()){
-        QSettings setting(QApplication::organizationName(),"elokabsettings");
+        QSettings setting(QApplication::organizationName(),"Qtrackersettings");
         setting.beginGroup("DefaultBrowser");
         bool defaultBrowser=(setting.value("defaultBrowser",false).toBool());
 

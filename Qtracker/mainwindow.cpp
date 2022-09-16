@@ -534,7 +534,7 @@ void MainWindow::loadIconThems()
     QByteArray sS=qgetenv("DESKTOP_SESSION");
 
     if(sS=="elokab-session"){
-        QSettings setting(QApplication::organizationName(),"elokabsettings");
+        QSettings setting(QApplication::organizationName(),"Qtrackersettings");
         setting.beginGroup("Themes");
         icnThem=  setting.value("iconsTheme",QIcon::themeName()).toString();
         setting.endGroup();

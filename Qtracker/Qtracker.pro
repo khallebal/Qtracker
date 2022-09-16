@@ -117,9 +117,9 @@ FORMS    += mainwindow.ui \
 RESOURCES += \
     icons.qrc
 
-TRANSLATIONS    =../usr/share/elokab/translations/ar/elokab-fm.ts\
-                 ../usr/share/elokab/translations/fr/elokab-fm.ts\
-                 ../usr/share/elokab/translations/en/elokab-fm.ts\
+TRANSLATIONS    =../usr/share/qtracker/translations/ar/elokab-fm.ts\
+                 ../usr/share/qtracker/translations/fr/elokab-fm.ts\
+                 ../usr/share/qtracker/translations/en/elokab-fm.ts\
 
 CODECFORTR = UTF-8
 # install

@@ -26,27 +26,14 @@ linux-g++*: {
 #                   INSTALL
 #---------------------------------------------
 
-# MKDIR = mkdir -p /etc/xdg/elokab
-# MKDIR = mkdir -p /usr/share/elokab
-# MKDIR = mkdir -p /usr/share/applications
-# MKDIR = mkdir -p /usr/lib/elokab
-
 #---config files---------
  elokabConfig.files =etc/xdg/*
  elokabConfig.path=/etc/xdg/
 
 #---DATA files---------------
- elokabData.files=usr/share/elokab/*
- elokabData.path=/usr/share/elokab
-
- applicationsData.files=usr/share/applications/*
- applicationsData.path=/usr/share/applications/
-
-#  elokablib.files=usr/lib/elokab/*
-# elokablib.path=/usr/lib/elokab
+ elokabData.files=usr/share/qtracker/*
+ elokabData.path=/usr/share/qtracker
 
  INSTALLS +=    elokabConfig \
-                elokabData \
-                applicationsData
-#                elokablib
+                elokabData
 

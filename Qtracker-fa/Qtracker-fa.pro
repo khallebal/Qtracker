@@ -34,9 +34,9 @@ FORMS += \
     progressdlg.ui \
     confirmdlg.ui
 
-TRANSLATIONS    =../usr/share/elokab/translations/ar/elokab-fa.ts\
-                 ../usr/share/elokab/translations/fr/elokab-fa.ts\
-                 ../usr/share/elokab/translations/en/elokab-fa.ts\
+TRANSLATIONS    =../usr/share/qtracker/translations/ar/elokab-fa.ts\
+                 ../usr/share/qtracker/translations/fr/elokab-fa.ts\
+                 ../usr/share/qtracker/translations/en/elokab-fa.ts\
 
 CODECFORTR = UTF-8
 
