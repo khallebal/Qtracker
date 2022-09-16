@@ -11,4 +11,4 @@ Name[de]=Konvertiere zu *.mp3
 Name[hr]=Pretvoriti u *.mp3
 Icon=audio-mp3
 #Exec=konsole --noclose -e  ffmpeg -hide_banner  -i  %f  -ab 50k -f mp3  "%n.mp3"
-Exec=elokab-terminal -e  ffmpeg -hide_banner  -i  %f  -ab 50k -f mp3  %n.mp3
+Exec=Terminal -e  ffmpeg -hide_banner  -i  %f  -ab 50k -f mp3  %n.mp3

@@ -1186,7 +1186,7 @@ QString EMimIcon::defaultTerminal()
     if(terminal.isEmpty()){
         //NOTE تغيير هذه القائمة بعد مدة
         QStringList list;
-        list<<"elokab-terminal"<<"gnome-terminal"<<"konsole"<<"termite"
+        list<<"Terminal"<<"elokab-terminal"<<"gnome-terminal"<<"konsole"<<"termite"
            <<"deepin-terminal"<<"terminology"<<"xfce4-terminal"
           << "lxterminal"<<"qterminal"<<"mate-terminal"<<"pantheon-terminal"
           <<"terminator"<<"theterminal"<<"aterm"
