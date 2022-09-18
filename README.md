@@ -3,7 +3,7 @@ to make it work under Haiku
 this is the original repo:
 
 ```html
-https://gitlab.com/zakariakov/elokab-files-manager.git
+https://github.com/zakariakov/elokab-files-manager
 ```
 
 # elokab-files-manager
