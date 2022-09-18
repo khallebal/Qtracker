@@ -347,7 +347,7 @@ Messages::debugMe(0,__LINE__,"MainWindow",__FUNCTION__,url);
      if(dir.path()==QDir::homePath())
           name=tr("Home");
 
-     setWindowTitle(tr("ElokabFm")+"-"+name);
+     setWindowTitle(tr("Qtracker")+"-"+name);
      QModelIndex index= myModel->index(url);
      ui->treeView->setCurrentIndex((index));
      calculatFiles();
