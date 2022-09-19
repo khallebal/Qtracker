@@ -33,7 +33,7 @@ Optional dependencies: imagemagick , ffmpeg
 # Install
 
 ```html
-git clone https://gitlab.com/zakariakov/elokab-files-manager.git
+git clone https://github.com/khallebal/qtracker.git
 ```
 
 cd elokab-files-manager
